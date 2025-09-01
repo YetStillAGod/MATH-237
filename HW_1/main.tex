@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb , amsthm, graphicx,mathtools}
+
+\newcommand{\im}{\text{im }}
+
+\begin{document}
+
+\section*{Question 1}
+
+\subsection*{(a)}
+
+\begin{proof}
+~
+    \begin{enumerate}
+    \item $[s]\coloneqq \{x\in S |x\sim s\}$;
+    \item To prove that classes of $\sim$ can form a partition of $S$, it is necessary to show $[s]$ is non empty, the collection of classes can cover $S$, and different classes are disjoint:
+    \begin{enumerate}
+        \item Non-emptiness: \begin{enumerate}
+            \item $\sim$ is equivalence, so $s\sim s$ by reflexivity;
+            \item For any arbitrary $[s]$ where $s\in S$, $s\in[s]$;
+            \item Every class is non-empty.
+        \end{enumerate}
+        \item Coverage: \begin{enumerate}
+            \item By proof process in non-emptiness: $\forall x\in S, x\in [x]$;
+            \item So $\forall s\in S,s\in \bigcup_{s\in S}[s]$;
+            \item So $S \subseteq \bigcup_{s\in S}[s]$;
+            \item The collection of classes can cover $S$.
+        \end{enumerate}
+        \item  Disjointness: \begin{enumerate}
+            \item Suppose $[s]\cap[t]\ne \emptyset$;
+            \item $\exists x: x\in [s]\cap [t]$, then $x\sim s$ and $x\sim t$;
+            \item By transitivity and symmetry: $s\sim t$;
+            \item Then suppose $p\in [s]$, $p\sim s$;
+            \item $p\sim s$ and $s\sim t $, so $p\sim t$, $p\in[t]$
+            \item Since $p$ is arbitrarily in $[s]$, so $[s]\subseteq [t]$;
+            \item By the same process for $q\in[t]$: $[t]\subseteq [s]$;
+            \item So $[s]\cap[t]\ne \emptyset\implies[s]=[t]$;
+            \item By contrapositive: $[s]\ne[t]\implies[s]\cap[t]= \emptyset$, which is disjointness.
+        \end{enumerate}
+    \end{enumerate}
+    \item So classes of $\sim$ can form a partition of $S$.
+\end{enumerate}
+\end{proof}
+
+~
+
+\subsection*{(b)}
+
+\begin{proof}
+~
+    \begin{enumerate}
+        \item To prove $\sim $ is an equivalence relation, it is necessary to prove reflexivity, transitivity and symmetry:
+        \begin{enumerate}
+            \item Reflexivity: Since $a$ and $a$ are in the same partition, so $a\sim a$.
+            \item Transitivity: \begin{enumerate}
+                \item Suppose $a\sim b$, $b\sim c$,
+                \item so $a,b\in C_1$, and $b,c\in C_2$, where $C_1$ and $C_2$ are cells of the partition $\mathcal{P}$;
+                \item $b\in C_1\cap C_2$, so $C_1\cap C_2\ne\emptyset$, since cells are disjoint or the same, $C_1=C_2$;
+                \item So $a,c\in C_1$, and $a\sim c$;
+                \item So $a\sim b,b\sim c\implies a\sim c$.
+            \end{enumerate}
+            \item Symmetry: \begin{enumerate}
+                \item Suppose $a\sim b$;
+                \item So $a,b\in C$, where $C$ is a cell of the partition $\mathcal{P}$;
+                \item So $b\sim a$;
+                \item So $a\sim b\implies b\sim a$.
+            \end{enumerate}
+        \end{enumerate}
+        \item So $\sim$ is an equivalence relation.
+    \end{enumerate}
+\end{proof}
+
+~
+
+\subsection*{(c)}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item Consider finite group $G$ and its subgroup $H\leq G$ and its left cosets $gH$ where $g\in G$;
+        \item The two cosets are either disjoint or equal, and $\forall g\in G, g\in gH$, so cosets of $H$ form a partition of $G$;
+        \item Since for map $H\to gH,h\mapsto gh$ is a bijective mapping, so each coset has the same size;
+        \item So if there are $k$ distinct cosets, then $|G|=\sum_{i=1}^{k}|g_iH|=k|H|$;
+        \item So $|H|\  |\  |G|$.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 2}
+
+\subsection*{(a)}
+
+\begin{proof}
+~
+    \begin{enumerate}
+        \item $G\coloneqq \langle g\rangle$ and $H \coloneqq \{g^m|m\leq |G|\}\leq G$;
+        \item Case 1: 
+        \begin{enumerate}
+            \item $m=0 \implies H=\{e\}$;
+            \item $\{e\}$ is cyclic.
+        \end{enumerate}
+        \item Case 2:
+        \begin{enumerate}
+            \item $m> 0$, then set $m=\min\{k>0|g^k\in H\}$, which is the smallest positive integer in this indexing set;
+            \item Suppose arbitrary $g^t\in H$, then $t=qm+r$ where $q,r\in \mathbb{Z}$ and $r<0$;
+            \item As we set that $m$ is the smallest positive integer in the indexing set, only $r=0$ can satisfy this;
+            \item Then $t$ is a multiple of $m$, since so every element of $H$ is a power of $g^m$, which makes $H$ cyclic.
+        \end{enumerate}
+        \item So subgroups of cyclic groups are cyclic.
+    \end{enumerate}
+\end{proof}
+
+~
+
+\subsection*{(b)}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item $G\coloneqq \langle g\rangle$ and $|G|\coloneqq n$;
+        \item For $d$ that $d|n$, $g^{n/d}\in G$;
+        \item $\langle g^{n/d}\rangle\leq G$;
+        \item ${\left(g^{n/d}\right)}^d=g^n=e$ and since $\langle  g^{n/d}\rangle$ is generated by $g^{n/d}$ , $\langle g^{n/d}\rangle$ has order $d$;
+        \item since $d$ is arbitrarily $d|n$, every subgroup generated by $d|n$ has order $d$.
+    \end{enumerate}
+\end{proof}
+
+~
+
+\subsection*{(c)}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item $|G|\coloneqq p$ where $p$ is a prime, and let $g\ne e\in G$;
+        \item Then $\langle g\rangle \leq G$;
+        \item By lagrange, $|\langle g\rangle|\ |\ |G|=p$;
+        \item So $|\langle g\rangle|=1$ or $p$;
+        \item Since $g\ne e$, $|\langle g\rangle|=p$;
+        \item So $\langle g\rangle=G$;
+        \item So $G$ is cyclic.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 3}
+
+\begin{enumerate}
+    \item Automorphism requires isomorphism, so it must be a one-to-one homomorphism;
+    \item Kernel of the homomorphism must only contains $e$ and no others;
+    \item So for an automorphism mapping $ \varphi_k: C_n\to C_n, \varphi_k(x)\coloneqq x^k$, for $\varphi_k\in \text{Aut}(C_n)$, $x^k$ must be the generator of $C_n$;
+    \item So $\gcd(n,k)=1$;
+    \item So $\text{Aut}(C_n)=\{\varphi_k|1\leq k\leq n,\gcd(n,k)=1\}$;
+    \item $|\text{Aut}(C_n)|$ is just the number of $k$ such that $\gcd(n,k)=1$, which is Euler's phi function;
+    \item $\text{Aut}(C_n)=\phi(n)$, where $\phi(n)$ stands for Euler's phi function.
+\end{enumerate}
+
+\newpage
+
+\section*{Question 4}
+
+\begin{enumerate}
+    \item For $\varphi:C_n\to C_m$, $K\coloneqq \ker\varphi\leq C_n$ and $I\coloneqq \im \varphi\leq C_m$;
+    \item By first isomorphism theorem: $|C_n|/|K|=|I|$, so $|I|\ |\ |C_n|=n$;
+    \item Also, $I\leq C_m$, so $|I| \ |\ |C_m|=m$;;
+    \item $|I|\ |\ \gcd(m,n)$;
+    \item By fundamental theorem of cyclic groups, $I$ is unique for every order $|I|=d|m$, then write $I$ as $C_d$;
+    \item Then fix $d$ to find the number of homomorphisms with $|I|=d$:
+    \begin{enumerate}
+        \item  By first isomorphism theorem, $\varphi$ has $I$ as image, then there is an injective homomorphism $C_n/K\to C_m$; 
+        \item $C_n/K\cong C_d$, so being injective is just to find the number of generators of $C_d$, which is $\phi(d)$, the Euler's phi function;
+        \item So the number of $\varphi$ such that $|I|=d$ is $\phi(d)$;
+    \end{enumerate}
+    \item Then the number of all homomorphisms are $\sum_{d|\gcd(m,n)}\phi(d)$;
+    \item By the divisor-sum equality, $\sum_{d|\gcd(m,n)}\phi(d)=\gcd(m,n)$;
+    \item The number of homomorphisms from $C_n$ to $C_m$ is $\gcd(m.n)$
+\end{enumerate}
+\end{document}
