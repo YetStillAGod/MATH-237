@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\lcm}{\text{lcm}}
+
+\begin{document}
+
+
+\section*{Question 1}
+\begin{proof}
+~
+    \begin{enumerate}
+\item Let $\alpha:=\sqrt[6]{2}$, then $\alpha^3=\sqrt{2}$, so $\alpha$ is a root of $f(x)=x^3-\sqrt{2}\in\Q(\sqrt{2})[x]$;
+\item Over $\Q$, the minimal polynomial of $\alpha$ is $x^6-2$, which is Eisenstein at $2$, hence irreducible;
+\item Let $b\coloneqq \sqrt{2}$, over $\Q$, the minimal polynomial of $b$ is $x^2-2$, Eisenstein at 2, also irreducible;
+\item So $[\Q(\alpha):\Q]=6$ and $[\Q(\sqrt{2}):\Q]=2$;
+\item $[\Q(\alpha):\Q(\sqrt{2})]=[\Q(\alpha):\Q]/[\Q(\sqrt{2}):\Q]=3$;
+\item The minimal polynomial of $\alpha$ over $\Q(\sqrt{2})$ divides $f(x)$ and has degree $3$, so it equals $f(x)$;
+\item Hence $x^3-\sqrt{2}$ is irreducible over $\Q(\sqrt{2})$.
+\end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 2}
+\begin{proof}
+~
+    \begin{enumerate}
+\item Let $F$ be a field, $E/F$ an extension, and $\alpha,\beta\in E$;
+\item Assume $\alpha$ is transcendental over $F$ and algebraic over $F(\beta)$
+\item So $\exists p(x)\in F(\beta)[x]:p(\alpha)=0,p(x)\coloneqq \sum_{i=0}^np_i(\beta)x^i,p_i(\beta)\in F(\beta)$;
+\item Since $\alpha$ is transcendental over $F$, $\exists p_i(b)\notin F$;
+\item Set $P[X,Y]\coloneqq \sum_{i=0}^n p_i(Y)X^i\in F[X,Y],P(\alpha,\beta)=0\land P\ne 0$;
+\item The evaluation map $F[X,Y]\to F(\alpha)[Y]$ given by $X\mapsto\alpha$ is injective:
+\begin{enumerate}
+\item $\alpha$ is transcendental over $F$;
+    \item a nonzero polynomial in $X$ with coefficients in $F$ cannot vanish at a transcendental element since transcendental element over $F$ is not root of any nonzero polynomial in $F[x]$;
+\end{enumerate}
+\item So $P(\alpha,Y)\in F(\alpha)[Y]$ is a nonzero polynomial with $P(\alpha,\beta)=0$.
+\item Then rewrite $P(a,Y)$ as $\sum_{i=0}^n {p_i}'(\alpha)Y^i$ by distribution property of $F$ since $F$ is a field;
+\item So $P(\alpha,Y)\in F(\alpha)[Y]$ with $P(\alpha,\beta)=0\in F(a)[Y]$
+\item Therefore $\beta$ is a root of a nonzero polynomial over $F(\alpha)$, i.e.\ $\beta$ is algebraic over $F(\alpha)$.
+\end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 3}
+
+\begin{enumerate}
+    \item Quadratic
+        \begin{proof}
+        ~
+        \begin{enumerate}
+
+            \item $f(x)\in\Q[x]$ be quadratic with distinct roots $a,b\in\C$;
+        \item Then $\alpha+\beta,\,\alpha\beta\in\Q$ by conjugate properties of $a,b$;
+        \item $\Q(b)\subseteq \Q(a)$:
+        \begin{enumerate}
+            \item $a+b\in\Q(a)$ and $a\in\Q(a)$;
+            \item So $a+b-a=b\in\Q(a)$;
+            \item SO $\Q(b)\subseteq \Q(a)$;
+        \end{enumerate}
+        \item $\Q(a)\subseteq \Q(b)$:
+        \begin{enumerate}
+            \item $a+b\in\Q(b)$ and $b\in\Q(b)$;
+            \item So $a+b-b=a\in\Q(b)$;
+            \item SO $\Q(a)\subseteq \Q(b)$;
+        \end{enumerate}
+        \item So $\Q(a)=\Q(b)$.
+        \end{enumerate}
+        \end{proof}
+    \item $x^3-2$
+    \begin{proof}
+        ~
+        \begin{enumerate}
+            \item Let the three roots be $\alpha=\sqrt[3]{2}\in\mathbb{R}$ and $\beta=\sqrt[3]{2}\,\zeta$, $\gamma=\sqrt[3]{2}\,\zeta^2$ with $\zeta=e^{2\pi i/3}$;
+            \item $\Q(\alpha)\subset\mathbb{R}$ while $\Q(\beta), \Q(\gamma) \nsubseteq\mathbb{R}$, so $\Q(\alpha)\neq\Q(\beta),\Q(\gamma)$;
+            \item $\Q(\beta)\ne\Q(\gamma)$:
+            \begin{enumerate}
+                \item If $\Q(\beta)=\Q(\gamma)$, then both $\beta,\gamma$ lie in the same field $F$;
+                \item So $\zeta=\beta/\alpha\in F$. 
+                \item $x^3-2$ is irreducible over $\Q$ by Eisenstein at 2, so $[\Q(\beta):\Q]=3$;
+                \item $\zeta =e^{2\pi i/3},\zeta^3=1$;
+                \item So $\zeta$ is a root of $x^3-1=(x-1)(x^2+x+1)$;
+                \item $\zeta \ne1$, so $zeta$ is a root of $x^2+x+1$;
+                \item $\Q(\zeta)$ is a degree-$2$ subfield;
+                \item A degree-$3$ extension cannot contain a degree-$2$ subfield by $[\Q(\beta):\Q]=[\Q(\beta)]:\Q(\zeta)][\Q(\zeta):\Q]$;
+                \item Contradiction. Hence $\Q(\beta)\neq\Q(\gamma)$;
+            \end{enumerate}
+            \item Therefore the three fields $\Q(\alpha)$, $\Q(\beta)$, and $\Q(\gamma)$ are pairwise distinct.
+        \end{enumerate}
+    \end{proof}
+\end{enumerate}
+
+\newpage
+
+\section*{Question 4}
+\begin{enumerate}
+\item If $K_i=F(\alpha_i)$, then $K_1\cdots K_n=F(\alpha_1,\dots,\alpha_n)$:
+\begin{proof}
+
+~
+    \begin{enumerate}
+\item $K_1\cdots K_n\subseteq F(\alpha_1,...,\alpha_n)$:
+\begin{enumerate}
+    \item For arbitrary $1\leq i\leq n$, $K_i=F(\alpha_i)\subseteq F(\alpha_1,...,\alpha_n)$;
+    \item So $\forall K_i:1\leq i\leq n,K_i\subseteq F(\alpha_1,...,\alpha_n)$;
+    \item $K_1\cdots K_n$ being defined as the smallest field containing all these fields, so $K_1\cdots K_n\subseteq F(\alpha_1,...,\alpha_n)$;
+\end{enumerate}
+\item $F(\alpha_1,...,\alpha_n)\subseteq K_1\cdots K_n$:
+\begin{enumerate}
+    \item Any field containing $K_i$ must contain $\alpha_i$;
+    \item By arbitrariness, any field containing all $K_i$ must contain all $\alpha_i$;
+    \item So $F(\alpha_i,...,\alpha_n)\subseteq K_1\cdots K_n$;
+\end{enumerate}
+\item So $K_1\cdots K_n=F(\alpha_1,...,\alpha_n)$.
+\end{enumerate}
+\end{proof}
+
+\item If $K=F(\alpha_1,\dots,\alpha_n)$ and $L/F$ is any subfield of $E$, then $KL=L(\alpha_1,\dots,\alpha_n)$:
+\begin{proof}
+    ~
+    \begin{enumerate}
+\item $KL\subseteq L(\alpha_1,...,\alpha_n)$:
+\begin{enumerate}
+    \item $K\subseteq L(\alpha_1,\dots,\alpha_n)$ and $L\subseteq L(\alpha_1,\dots,\alpha_n)$;
+    \item So $L(\alpha_1,...,\alpha_n)$ contains $K$ and $L$;
+    \item $KL$ is the smallest field containing $K$ and $L$;
+    \item So $KL\subseteq L(\alpha_1,...,\alpha_n$;
+\end{enumerate}
+\item $L(\alpha_1,...,\alpha_n)\subseteq KL$:
+\begin{enumerate}
+    \item $L\subseteq KL$, $\forall \alpha_i\in\{\alpha_1,...,\alpha_n\},\alpha_i\in K\subseteq KL$;
+    \item Consequently, $L(\alpha_1,...,\alpha_n)\subseteq KL$;
+\end{enumerate}
+\item Hence $KL=L(\alpha_1,\dots,\alpha_n)$.
+\end{enumerate}
+\end{proof}
+
+\item If $K/F$ and $L/F$ are finite, then $[KL:F]\le [K:F][L:F]$, with equality when $\gcd([K:F],[L:F])=1$.
+\begin{proof}
+    ~
+    \begin{enumerate}
+\item Let $m=[K:F]$ and $K=F(\alpha_1,...,\alpha_j)$;
+\item Then $KL=L(\alpha_1,\dots,\alpha_j)$, hence $[KL:L]\leq m=[K:F]$;
+\item Multiplying by $[L:F]$:$[KL:L][L:F]=[KL:F]\le [K:F][L:F]$.
+\item If $\gcd([K:F],[L:F])=1$, then $\operatorname{lcm}([K:F],[L:F])=[K:F][L:F]\mid [KL:F]\le [K:F][L:F]$, forcing equality.
+\item $[KL:F]=[KL:L][L:F]\implies [L:F]\mid [KL:F]$, similarly: $[K:F]\mid [KL:F]$;
+\item Set $\gcd([L:F],[K:F])=1$;
+\item $\gcd(a,b)=1,a\mid c,b\mid c\implies ab\mid c$:
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item $c\coloneqq am$, so $b\mid am$;
+        \item $\gcd(a,b)=1$, so $b\mid m$;
+        \item $m\coloneqq bn$;
+        \item So $c=abn$;
+        \item So $ab\mid c$.
+    \end{enumerate}
+\end{proof}
+\item So $[L:F][K:F]\mid [KL:F]$, which means $[L:F][K:F]\leq [KL:F]$;
+\item Since $[KL:F]\leq [L:F][K:F]$, $[L:F][K:F]=[KL:F]$
+\end{enumerate}
+\end{proof}
+\end{enumerate}
+
+\newpage
+
+\section*{Question 5}
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item Set $[E:F]=p$ prime;
+        \item $\alpha \in E\setminus F$, then $F\subset F(a)\subseteq E$;
+        \item So $[E:F]=[R:F(a)][F(a):F]$;
+        \item So $[F(a):F]=1$ or $p$;
+        \item Since $a\notin F$, so $[F(a):F]\ne1$ and $[F(a):F]=p$;
+        \item $a\in E \land [F(a):F]=p=[E:F]$, so $F(a)=E$;
+        \item This implies $E$ is a simple extension of $F$.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 6}
+Write $F_j:=\Q\left(2^{1/2^j}\right)$ for $j\ge 0$.
+\begin{proof}
+    ~\begin{enumerate}
+\item $E$ is a subfield of $\mathbb{R}$.
+\begin{enumerate}
+\item Each $F_j$ is a field, $F_0=\Q$, and $F_j\subset F_{j+1}$ since $2^{1/2^j}=(2^{1/2^{j+1}})^2$;
+\item The standard $\Q$-basis of $F_j$ is $\{2^{k/2^j}: 0\le k\le 2^j-1\}$, which is the same as the expression in the problem to $j$;
+\item $F_j$ is a field, so $\forall x,y\in E,\exists i:x,y\in F_i$, so $x\pm y,xy,x/y(y\ne 0)\in F_i\subset E$);
+\item So $E$ is closed under field operations;
+\item Hence $E$ is a subfield of $\mathbb{R}$.
+\end{enumerate}
+
+\item $E/\Q$ is algebraic.
+\begin{enumerate}
+\item Each $F_j/\Q$ is algebraic since $2^{1/2^j}$ is a root of $x^{2^j}-2$;
+\item $\forall x\in E,\exists i:x\in F_i$, which is algebraic;
+\item So $E$ is an algebraic extension over $\Q$.
+\end{enumerate}
+
+\item $E/\Q$ is not finite.
+\begin{enumerate}
+\item Suppose $[E:\Q]=N<\infty$;
+\item Then every subextension would have degree $\leq N$;
+\item $F_j\subset E$ and $[F_j:\Q]=2^j$ by Eisenstein at 2 for $x^{2^j}-2$;
+\item $2^j$ is unbounded as $j\to\infty$;
+\item Contradiction, hence $[E:\Q]=\infty$.
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb , amsthm, graphicx,mathtools}
+
+\begin{document}
+
+\section*{Question 1}
+
+\begin{proof}
+~
+    \begin{enumerate}
+        \item Consider prime field $\mathbb{F}_p=\mathbb{Z}/p\mathbb{Z}$:
+        \item For $1\leq k\leq p-1$, $0=\binom{p}{k}\in \mathbb{F}_p$:
+        \begin{enumerate}
+            \item $\binom{p}{k}=\frac{p!}{k!(p-k)!}$;
+            \item $p!$ has a factor of $p$, but $k!(p-k)!$ does not since $k< p$ and $p-k<p$;
+            \item So denominator is not divisible by $p$ but nominator has a factor of $p$, and $\binom{p}{k}$ is an integer, so $\binom{p}{k}\equiv 0 \mod{p}$;
+            \item By definition of $\mathbb{F}_p$, $\binom{p}{k}=0$.
+        \end{enumerate}
+        \item So $\forall x,y\in \mathbb{F}_p,(x+y)^p=x^p+y^p$;
+        \item So $\varphi:\mathbb{F}_p\to\mathbb{F}_p,\varphi(x)=x^p$ is a ring homomorphism;
+        \item $\varphi(1)=1$, and by homomorphism, $\forall m\in \mathbb{F}_p,\varphi(m)=\varphi(m-1)+\varphi(1)=\varphi(m-2)+2\varphi(1)=...=m\varphi(1)=m$;
+        \item $\varphi$ is the identity mapping on all of $\mathbb{F}_p$,  so $\forall [a]\in \mathbb{F}_p, [a]^p=[a]$, $[a]$ is the residue class of $a$;
+        \item By the definition of $\mathbb{F}_p$ itself, $a^p\equiv a\mod p$ (the remaining in $(a+kn)^p$ and $kn$ are mod out since they are divisible by $n$).
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 2}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item Take $R(n)\coloneqq \{[x]\in\mathbb{Z}/n\mathbb{Z}|\gcd(x,n)=1\}$;
+        \item $\gcd(a,n)=1,\gcd(b,n)=1\implies \gcd(ab,n)=1$:
+        \begin{enumerate}
+            \item Take $p$ arbitrarily a prime that $p\mid n$;
+            \item $\gcd(a,n)=1\implies p\nmid a$, $\gcd(b,n)=1\implies p\nmid b$;
+            \item $p\nmid a\land p\nmid b\implies p\nmid ab$ (contrapositive of Euclid's Lemma):
+            \begin{enumerate}
+                \item Suppose $p\nmid a\land p\nmid b$;
+                \item $p\nmid a$, so $[a]$ is a unit in $\mathbb{F}_p=\mathbb{Z}/p\mathbb{Z}$ (Since it is a field, every non-zero element had a multiplicative inverse and is a unit);
+                \item Let its inverse be $a^{-1}\mod{p}$;
+                \item Assume for reductio: $p\mid ab$, then $ab\equiv 0\mod{p}$;
+                \item Then $a^{-1}(ab)\equiv 0\mod{p}\implies b\equiv 0\mod{p}\nLeftrightarrow p\nmid b$;
+                \item So $p\nmid ab$.
+            \end{enumerate}
+            \item So $p\nmid ab$;
+            \item Since $p$ is taken arbitrarily, no prime dividing $n$ divides $ab$;
+            \item So $\gcd(ab,n)=1$.
+        \end{enumerate}
+        \item Since $\gcd(a,n)=1,\gcd(b,n)=1\implies \gcd(ab,n)=1$, so $R(n)$ is a group under multiplication mod $n$;
+        \item $|R(n)|=\varphi(n)$ by definition;
+        \item $\gcd(a,n)=1$, so $[a]\in R(n),[a]=a+kn<n$;
+        \item $\langle [a]\rangle $ is a subgroup of $R(n)$, set $|\langle [a]\rangle|=d$, then $[a]^d=[1]$;
+        \item By Lagrange theorem, $d \mid\varphi(n)$, so $\varphi(n)=md$ for some $m\in \mathbb{Z}$;
+        \item $[a]^{\varphi(n)}=[a]^{md}=([a]^d)^m=[1]$, so $[a]^{\varphi(n)}=[1]$;
+        \item That is: for $\gcd(a,n)=1$, $a^{\varphi(n)}\equiv1\mod{n}$ (the remaining in $(a+kn)^{\varphi(n)}$ are mod out since they are divisible by $n$).
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 3}
+
+\begin{proof}
+~
+    \begin{enumerate}
+        \item By definition of ideal, $N\subseteq R$;
+        \item Let $u\in N$ be a unit, then $\exists v\in R:uv=1$;
+        \item Ideals are closed under ring elements multiplication;
+        \item So $1=uv\in N$, and $\forall r\in R, 1\cdot r=r\in N$;
+        \item So $\forall r\in R, r\in N$, which means $R\subseteq N$;
+        \item So $N=R$.
+        \item Corollary: In a field, every non-zero element is a unit, so any ideal containing a non-zero element will become the field, so a field only has trivial ideal or itself as its ideals, so containing no proper nontrivial ideals.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 4}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item To prove this is to show every non-zero element in the domain $D$ is a unit (every nonzero element has a multiplicative inverse);
+        \item Fix an arbitrary $a \ne 0\in D$, consider $\varphi_a:D^*\to D^*, \varphi_a(x)=ax$ ($D^*$ denotes $D\setminus \{0\}$);
+        \item $\varphi_a $ is injective:
+        \begin{enumerate}
+            \item Suppose $\varphi_a(x)=\varphi_a(y)$;
+            \item $ax=ay$, so $a(x-y)=0$;
+            \item Since $a,x-y\in D$, so either $a=0$ or $x-y=0$;
+            \item $a\ne0$ as supposed, so $x=y$;
+            \item So $\varphi_a$ is injective.
+        \end{enumerate}
+        \item Since an injective mapping from it to itself is surjective, $\varphi_a$ is surjective;
+        \item $1\in D^*$, so $\exists b\in D^*:\varphi_a(b)=ab=1$, so $a$ is a unit;
+        \item since $a$ is picked arbitrarily from $D^*$, so $\forall m\ne 0\in D, \exists n\in D: mn=1$;
+        \item So a finite integral domain is a field.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 5}
+
+\begin{proof}
+    ~
+    \begin{enumerate}
+        \item Let $R$ be a field and $I$ a nontrivial ideal;
+        \item $\Rightarrow$:
+        \begin{enumerate}
+            \item Assume for reductio: $I$ is a proper nontrivial ideal: $I \ne\{0\}\land I\ne R$;
+            \item Take $a\ne0\in I$, then $a$ is a unit;
+            \item Then $\exists b\in R: ab=1$;
+            \item By the closure of multiplication under ring elements, $1\in I$;
+            \item So $\forall M\in R, m=1\cdot m\in I$, so $R\subseteq I$;
+            \item By definition of ideal, $I\subseteq R$;
+            \item So $I=R$, contradiction;
+            \item So $R$ contains no proper nontrivial ideals.
+        \end{enumerate}
+        \item $\Leftarrow$:
+        \begin{enumerate}
+            \item Let arbitrary $a\ne0\in R$, $I\coloneqq \{ra|r\in R\}$ is a nontrivial ideal (it is closed of multiplication in $R$ since $\forall m,n\in R,mn\in R$);
+            \item By assumption, $I=R$, and $1\in I$;
+            \item So $\exists r\in R: ra=1\in I$, so $a$ is a unit;
+            \item Since $a$ is arbitrary, every non-zero element is a unit;
+            \item so $R$ is a field.
+        \end{enumerate}
+        \item So $R$ is a field $\Leftrightarrow$ $R$ has no proper nontrivial ideals.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{Question 6}
+
+\begin{proof}
+~
+    \begin{enumerate}
+        \item $R$ be a commutative ring with unity and let $P$ be a maximal ideal;
+        \item $P$ being a prime ideal is equivalent to $R/P$ being an integral domain:
+        \begin{enumerate}
+            \item $\Rightarrow$:
+            \begin{enumerate}
+                \item Suppose $P$ is prime;
+                \item Then take $a,b\in R/P:ab=0$;
+                \item So $ab\in P$;
+                \item By definition, $a\in P$ or $b\in P$;
+                \item So $a=0$ or $b=0$;
+                \item $ab=0\implies a=0\lor b=0$ means $R/P$ is an integral domain.
+            \end{enumerate}
+            \item $\Leftarrow$:
+            \begin{enumerate}
+                \item Suppose $R/P$ is an integral domain;
+                \item Suppose $ab\in P$, this means $ab=0\in R/P$;
+                \item By definition of integral domain, $a=0$ or $b=0$;
+                \item This means $a\in P$ or $b\in P$;
+                \item $ab\in P\implies a\in P\lor b\in P$ means $P$ is a prime ideal.
+            \end{enumerate}
+            \item So $P$ is a prime ideal $\Leftrightarrow$ $R/P$ is an integral domain.
+        \end{enumerate}
+        \item So the goal is to prove $R/P$ is an integral domain;
+        \item $P$ is maximal ideal, by definition $R/P$ contains no proper non-trivial ideals;
+        \item As proved in Question 5, $R/P$ is a field;
+        \item A field is an integral domain:
+        \begin{enumerate}
+            \item Let $F$ be a field;
+            \item Assume $a,b\in F, ab=0$, fix $a\ne0$ without loss of generality;
+            \item Since $F$ is a field, $\exists a^{-1}\in F$;
+            \item $a^{-1}(ab)=0=(a^{-1}a)b=b$, so $ab=0, a\ne 0\implies b=0$, same for $b\ne0$;
+            \item $a,b\in F,ab=0\implies a=0\lor b=0$;
+            \item So $F$ is an integral domain.
+        \end{enumerate}
+        \item So $R/P$ is an integral domain;
+        \item By the equivalence, $P$ is a prime ideal;
+        \item So a maximal ideal in a commutative ring with unity is a prime ideal.
+    \end{enumerate}
+\end{proof}
+\end{document}
